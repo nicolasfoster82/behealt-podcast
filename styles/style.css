@@ -1,0 +1,154 @@
+/*ajustes generales*/
+body {
+    background-color: #1e1e2f;
+    color: #ffffff !important;
+}
+
+
+/*sidebar*/
+.sidebar{
+    height: 100vh !important;
+    position: fixed;
+    background-color: #28293d !important;
+    z-index: 2;
+}
+
+.logo-miniatura {
+    width: 30px;
+    height: 30px;
+}
+
+.nav-link {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer ;
+    transition: 0.5s;
+}   
+
+.active-section {
+    background-color: #47476d !important;
+}
+
+/* Contenido principal */
+main {
+    margin-left: 270px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+/* carousel section */
+.owl-carousel{
+    padding-top: 50px;
+}
+
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next {
+    position: absolute;
+    top: 3px;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white !important;
+    font-size: 2rem !important;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50px;
+    transition: 0.5s;
+}
+
+.owl-carousel .owl-nav button.owl-prev:hover,
+.owl-carousel .owl-nav button.owl-next:hover {
+    background: #494959;
+}
+
+.owl-carousel .owl-nav button.owl-prev {
+    right: 40px;
+}
+.owl-carousel .owl-nav {
+    display: block !important; /* Asegura que las flechas siempre se muestren */
+}
+
+.owl-carousel .owl-nav button {
+    opacity: 1; /* Asegúrate de que las flechas no tengan baja opacidad */
+}
+
+.episode {
+    position: relative;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.image-container img {
+    display: block;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+}
+
+.icon-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-container:hover img {
+    opacity: 0.5; /* Oscurece la imagen */
+}
+
+.image-container:hover .icon-overlay {
+    opacity: 1; /* Muestra el ícono */
+}
+
+/*season section*/
+.season-container {
+    position: relative;
+    padding-top: 20px;
+}
+
+.season-container h3 {
+    position: absolute;
+    top: 10px;
+    text-transform: capitalize;
+}
+
+/*Episode section*/
+.spotify-player {
+    margin-bottom: -90px;
+}
+
+
+/*most listen episodes section*/
+.most-listen-episodes-container .col {
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px !important;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.most-listen-episodes-container .col:hover {
+    scale: 0.9;
+}
+
+.most-listen-episodes-container h3 {
+    font-size: 3rem;
+    position: absolute;
+    top: 0px; /* Ajusta la distancia desde la parte superior según sea necesario */
+    right: 4px; /* Ajusta la distancia desde la parte derecha */
+    background-color: #49495988;
+    padding: 10px; 
+    border-bottom-left-radius: 10px;
+}
+
+.most-listen-episodes-container img {
+    width: 100%;
+    height: auto; /* Mantiene la proporción de la imagen */
+}
