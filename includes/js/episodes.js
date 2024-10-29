@@ -18,7 +18,7 @@ function loadEpisodes() {
                 carouselTrack.innerHTML = episodes.map(episode => `
                     <div class="episode">
                         <a href="${episode.title}" onclick="loadEpisode('${episode.id}'); return false;">
-                            <div class="image-container">
+                            <div class="image-container image-100 ">
                                 <img src="https://i.scdn.co/image/${episode.image}" alt="Podcast ${episode.title}">
                                 <div class="icon-overlay"><i class='bx bx-play'></i></div>
                             </div>
@@ -49,7 +49,7 @@ function loadEpisodes() {
 
 // Función para cargar la ficha técnica del episodio desde el JSON
 function loadEpisode(episodeId) {
-    fetch('includes/json/episodes.json')  // Asegúrate de que esta ruta sea correcta
+    fetch('includes/json/episodes.json?t=' + new Date().getTime())
         .then(response => response.json())
         .then(data => {
             const episode = data.episodes.find(ep => ep.id === episodeId);
@@ -69,7 +69,7 @@ function loadEpisode(episodeId) {
 
                     <h3>Descripción</h3>
                     <p>${episode.description}</p>
-                    <a href="" onclick="loadSection('seasons.html', this); return false;">Volver a episodios</a>
+                    <a href="" onclick="loadSection('seasons.html', this); return false;">Más episodios</a>
                 `;
             } else {
                 console.error('Episodio no encontrado');

@@ -27,42 +27,58 @@
 </head>
 
 <body>
-    <aside>
-        <div class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+    <div class="header-container d-flex align-items-center">
+        <a href="index.html">
+            <img src="assets/logo-miniatura-sin-fondo.webp" alt="logo de behealth" class="logo">
+        </a>
+        <button id="hamburger" class="hamburger d-md-none" onclick="toggleMenu()">
+            <i class="bx bx-menu"></i>
+        </button>
+    </div>
+
+    <div id="overlay" class="overlay"></div>
+
+    <aside id="sidebar" class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+        <div>
             <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
-                onclick="loadSection('home.html')">
-                <img src="assets/logo-miniatura-sin-fondo.webp" alt="logo de behealth en miniatura" class="logo-miniatura">
+                href="index.html">
+                <img src="assets/logo-miniatura-sin-fondo.webp" alt="logo de behealth en miniatura"
+                    class="logo-miniatura">
                 <span class="fs-4">Podcast</span>
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a id="home-link" class="nav-link active-section active" aria-current="page" onclick="loadSection('home.html', this)">
+                    <a id="home-link" class="nav-link active-section active" aria-current="page"
+                        onclick="loadSection('home.html', this)">
                         <i class='bx bxs-home'></i>
                         Home
                     </a>
                 </li>
                 <li>
-                    <a href="seasons" id="seasons-link" class="nav-link text-white" onclick="loadSection('seasons.html', this);return false">
+                    <a href="seasons" id="seasons-link" class="nav-link text-white"
+                        onclick="loadSection('seasons.html', this);return false">
                         <i class='bx bx-speaker'></i>
                         Episodios
                     </a>
                 </li>
                 <li>
-                    <a href="about" id="about-link" class="nav-link text-white" onclick="loadSection('about.html', this);return false">
+                    <a href="about" id="about-link" class="nav-link text-white"
+                        onclick="loadSection('about.html', this);return false">
                         <i class='bx bx-user-voice'></i>
                         Quiénes somos
                     </a>
                 </li>
                 <li>
-                    <a href="backstage" id="backstage-link" class="nav-link text-white" onclick="loadSection('backstage.html', this);return false">
+                    <a href="backstage" id="backstage-link" class="nav-link text-white"
+                        onclick="loadSection('backstage.html', this);return false">
                         <i class='bx bx-photo-album'></i>
                         Backstage
                     </a>
                 </li>
             </ul>
         </div>
-        
+
     </aside>
 
     <!-- Contenido principal -->
@@ -85,10 +101,13 @@
     <!--owl carrousel-->
     <script src="includes/js/jquery.min.js"></script>
     <script src="includes/js/owl.carousel.js"></script>
-    <script src="includes/js/mostListenedEpisodes.js"></script>
+
 
 
     <!-- Scripts -->
+    <script src="includes/js/aside.js"></script>
+    <script src="includes/js/mostListenedEpisodes.js"></script>
+    <script src="includes/js/featuredEpisodes.js"></script>
     <script src="includes/js/episodes.js"></script>
     <script src="includes/js/dinamicSections.js"></script>
 

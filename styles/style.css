@@ -6,7 +6,7 @@ body {
 
 
 /*sidebar*/
-.sidebar{
+.sidebar {
     height: 100vh !important;
     position: fixed;
     background-color: #28293d !important;
@@ -22,12 +22,16 @@ body {
     color: #bbb;
     text-decoration: none;
     font-size: 18px;
-    cursor: pointer ;
+    cursor: pointer;
     transition: 0.5s;
-}   
+}
 
 .active-section {
     background-color: #47476d !important;
+}
+
+.header-container {
+    display: none !important;
 }
 
 /* Contenido principal */
@@ -38,7 +42,7 @@ main {
 }
 
 /* carousel section */
-.owl-carousel{
+.owl-carousel {
     padding-top: 50px;
 }
 
@@ -65,12 +69,15 @@ main {
 .owl-carousel .owl-nav button.owl-prev {
     right: 40px;
 }
+
 .owl-carousel .owl-nav {
-    display: block !important; /* Asegura que las flechas siempre se muestren */
+    display: block !important;
+    /* Asegura que las flechas siempre se muestren */
 }
 
 .owl-carousel .owl-nav button {
-    opacity: 1; /* Asegúrate de que las flechas no tengan baja opacidad */
+    opacity: 1;
+    /* Asegúrate de que las flechas no tengan baja opacidad */
 }
 
 .episode {
@@ -100,11 +107,13 @@ main {
 }
 
 .image-container:hover img {
-    opacity: 0.5; /* Oscurece la imagen */
+    opacity: 0.5;
+    /* Oscurece la imagen */
 }
 
 .image-container:hover .icon-overlay {
-    opacity: 1; /* Muestra el ícono */
+    opacity: 1;
+    /* Muestra el ícono */
 }
 
 /*season section*/
@@ -141,14 +150,181 @@ main {
 .most-listen-episodes-container h3 {
     font-size: 3rem;
     position: absolute;
-    top: 0px; /* Ajusta la distancia desde la parte superior según sea necesario */
-    right: 4px; /* Ajusta la distancia desde la parte derecha */
+    top: 0px;
+    /* Ajusta la distancia desde la parte superior según sea necesario */
+    right: 4px;
+    /* Ajusta la distancia desde la parte derecha */
     background-color: #49495988;
-    padding: 10px; 
+    padding: 10px;
     border-bottom-left-radius: 10px;
 }
 
 .most-listen-episodes-container img {
     width: 100%;
-    height: auto; /* Mantiene la proporción de la imagen */
+    height: auto;
+    /* Mantiene la proporción de la imagen */
 }
+
+/*recomended episodes section*/
+.link-featured-episode {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.card {
+    background-color: #2a2a3c;
+    border: none;
+    color: #cfcfcf;
+}
+
+.card-body {
+    padding: 0 10px;
+    margin: 0;
+
+}
+
+.card-body h5 {
+    font-size: 1rem !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* Limita el texto a 2 líneas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+.card-body h6 {
+    padding-top: 5px;
+    color: #cfcfcf !important;
+    /* Color del subtítulo */
+    font-size: 0.8rem !important;
+}
+
+.card-body .d-flex span {
+    font-size: 0.7rem;
+    color: #a0a0b1;
+}
+
+.card-body .badge {
+    background-color: #6f42c1;
+    color: #ffffff;
+}
+
+.card-body:hover h5 {
+    text-decoration: underline;
+}
+
+@media screen and (max-width:600px) {
+
+    main {
+        margin: 0;
+        margin-top: 50px;
+    }
+
+    .header-container {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: #28293d;
+        /* Color de fondo del contenedor */
+        color: white;
+        position: fixed;
+        /* Fija el contenedor en la parte superior */
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 3;
+        /* Asegura que esté por encima de otros elementos */
+    }
+
+    .logo {
+        height: 30px;
+        /* Ajusta el tamaño del logo */
+    }
+
+    .hamburger {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+    }
+
+    /* Estilos del sidebar */
+    #sidebar {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: 0;
+        /* Cambia `left` por `right` para que esté en el lado derecho */
+        width: 280px;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 999;
+        overflow-y: auto;
+        transform: translateX(100%);
+        /* Oculto inicialmente a la derecha */
+        transition: transform 0.3s ease;
+        /* Transición suave */
+    }
+
+    #sidebar.active {
+        transform: translateX(0);
+        /* Despliegue hacia la izquierda */
+    }
+
+    /* Estilos del overlay */
+    .overlay {
+        display: none;
+        /* Oculto por defecto */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        /* Fondo oscuro semitransparente */
+        z-index: 998;
+        /* Debajo del sidebar */
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        /* Transición suave para el overlay */
+    }
+
+    .overlay.active {
+        display: block;
+        opacity: 1;
+    }
+
+    /*most listen episodes section*/
+    .display-inline {
+        display: inline !important;
+    }
+
+
+    .most-listen-episodes-container .col {
+       margin-bottom: 20px;
+    }
+
+    .most-listen-episodes-container .col:hover {
+        scale: 1;
+    }
+
+    /*indicadores del carrusel*/
+    .owl-theme .owl-nav{
+        display: none !important;
+    }
+
+    .image-100 {
+        width: 100%;
+    }
+
+}
+
+
+@media (min-width:600px) and (max-width:1000px) {}
+
+@media (min-width:600px) and (max-width:1200px) {}
+
+@media (min-width:1200px) and (max-width:1400px) {}

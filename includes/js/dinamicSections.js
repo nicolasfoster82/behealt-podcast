@@ -12,6 +12,7 @@ function loadSection(section, element) {
 
             if (section === 'home.html') {
                 loadMostListenedEpisodes(); // Llama a la función que carga episodios mas vistos
+                loadFeaturedEpisodes(); // Llama a la función que carga episodios recomendados
             }
 
             // Remover las clases de la sección activa anterior
