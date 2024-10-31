@@ -4,6 +4,22 @@ body {
     color: #ffffff !important;
 }
 
+.py-5 {
+    padding-top: 0 !important;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #3A80BA;
+    /* línea de color debajo del título */
+    padding-bottom: 10px;
+}
+
 
 /*sidebar*/
 .sidebar {
@@ -37,7 +53,7 @@ body {
 /* Contenido principal */
 main {
     margin-left: 270px;
-    padding: 20px;
+    padding: 50px 50px 0px 50px;
     transition: all 0.3s ease;
 }
 
@@ -124,8 +140,15 @@ main {
 
 .season-container h3 {
     position: absolute;
-    top: 10px;
+    top: 5px;
     text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #3A80BA;
+    padding: 10px 15px;
+    border-radius: 5px;
 }
 
 /*Episode section*/
@@ -135,6 +158,10 @@ main {
 
 
 /*most listen episodes section*/
+.featured-episodes-container {
+    margin: 50px 0;
+}
+
 .most-listen-episodes-container .col {
     position: relative;
     cursor: pointer;
@@ -177,13 +204,13 @@ main {
     color: #cfcfcf;
 }
 
-.card-body {
+.card-featured-episode .card-body {
     padding: 0 10px;
     margin: 0;
 
 }
 
-.card-body h5 {
+.card-featured-episode .card-body h5 {
     font-size: 1rem !important;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -194,32 +221,70 @@ main {
     white-space: normal;
 }
 
-.card-body h6 {
+.card-featured-episode .card-body h6 {
     padding-top: 5px;
     color: #cfcfcf !important;
     /* Color del subtítulo */
     font-size: 0.8rem !important;
 }
 
-.card-body .d-flex span {
+.card-featured-episode .card-body .d-flex span {
     font-size: 0.7rem;
     color: #a0a0b1;
 }
 
-.card-body .badge {
+.card-featured-episode .card-body .badge {
     background-color: #6f42c1;
     color: #ffffff;
 }
 
-.card-body:hover h5 {
+.card-featured-episode .card-body:hover h5 {
     text-decoration: underline;
 }
 
+/*about section*/
+.card-speaker img {
+    width: 150px;
+}
+
+/* Estilo para el título del miembro */
+.card-speaker .card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+/* Estilo para el subtítulo (cargo) */
+.card-speaker .card-subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #b0c4de;
+    margin-top: 5px;
+}
+
+/* Estilo para el párrafo */
+.card-speaker .card-text {
+    font-size: 0.9rem;
+    color: #dcdcdc;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
 @media screen and (max-width:600px) {
+    .py-5 {
+        padding-top: 3rem !important;
+    }
 
     main {
         margin: 0;
-        margin-top: 50px;
+        padding: 10px;
+        margin-top: 10vh;
+    }
+
+    .container {
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     .header-container {
@@ -240,7 +305,12 @@ main {
     }
 
     .logo {
-        height: 30px;
+        width: 2rem;
+        /* Ajusta el tamaño del logo */
+    }
+
+    .logo-miniatura {
+        width: 1.8rem;
         /* Ajusta el tamaño del logo */
     }
 
@@ -248,7 +318,7 @@ main {
         background: none;
         border: none;
         color: white;
-        font-size: 24px;
+        font-size: 2rem;
     }
 
     /* Estilos del sidebar */
@@ -304,27 +374,134 @@ main {
 
 
     .most-listen-episodes-container .col {
-       margin-bottom: 20px;
+        margin-bottom: 20px;
     }
 
     .most-listen-episodes-container .col:hover {
         scale: 1;
     }
 
-    /*indicadores del carrusel*/
-    .owl-theme .owl-nav{
-        display: none !important;
-    }
-
     .image-100 {
         width: 100%;
     }
 
+    /*sección de backstage*/
+    .reverse-mobile {
+        flex-direction: column-reverse;
+    }
 }
 
 
-@media (min-width:600px) and (max-width:1000px) {}
+@media (min-width:600px) and (max-width:1000px) {
+    
+    
+    /*sección de backstage*/
+    .reverse-mobile {
+        flex-direction: column-reverse;
+    }
+}
 
-@media (min-width:600px) and (max-width:1200px) {}
+@media (min-width:600px) and (max-width:1400px) {
+    .py-5 {
+        padding-top: 3rem !important;
+    }
 
-@media (min-width:1200px) and (max-width:1400px) {}
+    main {
+        margin: 0;
+        padding: 0 50px;
+        margin-top: 10vh;
+    }
+
+    .container {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .header-container {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 50px;
+        background-color: #28293d;
+        /* Color de fondo del contenedor */
+        color: white;
+        position: fixed;
+        /* Fija el contenedor en la parte superior */
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 3;
+        /* Asegura que esté por encima de otros elementos */
+    }
+
+    .logo {
+        width: 5rem;
+        /* Ajusta el tamaño del logo */
+    }
+
+    .logo-miniatura {
+        width: 2rem;
+        /* Ajusta el tamaño del logo */
+    }
+
+    .hamburger {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        display: inline !important;
+    }
+
+    /* Estilos del sidebar */
+    #sidebar {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: 0;
+        /* Cambia `left` por `right` para que esté en el lado derecho */
+        width: 280px;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 999;
+        overflow-y: auto;
+        transform: translateX(100%);
+        /* Oculto inicialmente a la derecha */
+        transition: transform 0.3s ease;
+        /* Transición suave */
+    }
+
+    #sidebar.active {
+        transform: translateX(0);
+        /* Despliegue hacia la izquierda */
+    }
+
+    /* Estilos del overlay */
+    .overlay {
+        display: none;
+        /* Oculto por defecto */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        /* Fondo oscuro semitransparente */
+        z-index: 998;
+        /* Debajo del sidebar */
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        /* Transición suave para el overlay */
+    }
+
+    .overlay.active {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@media (min-width:990px) and (max-width:1400px) {
+    .col-lg-3 {
+        width: 30%;
+    }
+    
+}

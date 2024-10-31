@@ -15,7 +15,7 @@ function loadFeaturedEpisodes() {
                 const episodeHTML = `
                     <div class="col-md-6 col-lg-3 mb-4">
                         <a href="${episode.title}" onclick="loadEpisode('${episode.id}'); return false;" class="link-featured-episode">
-                            <div class="card shadow-lg h-100">
+                            <div class="card card-featured-episode shadow-lg h-100">
                                 <div class="row g-0">
                                     <!-- Columna de la imagen -->
                                     <div class="col-4 image-container">
