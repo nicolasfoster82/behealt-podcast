@@ -56,20 +56,22 @@ function loadEpisode(episodeId) {
             if (episode) {
                 const content = document.getElementById('content'); // Reemplazamos el contenido del <main> con la ficha técnica
                 content.innerHTML = `
-                    <h1>${episode.title}</h1>
-                    <section class="spotify-player">
+                <section class="team py-5">
+                    <h2 class="episode-title">${episode.title}</h2>
+                    <div class="spotify-player">
                         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/${episode.spotifyId}?utm_source=generator" width="100%" height="325px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    </section>
+                    </div>
 
-                    <h3>Invitado/a</h3>
-                    <p>${episode.guest}</p>
+                    <h3 class="episode-subtitle">Invitado/a</h3>
+                    <p class="episode-description">${episode.guest}</p>
 
-                    <h3>Fecha de publicación</h3>
-                    <p>${episode.date}</p>
+                    <h3 class="episode-subtitle">Fecha de publicación</h3>
+                    <p class="episode-description">${episode.date}</p>
 
-                    <h3>Descripción</h3>
-                    <p>${episode.description}</p>
-                    <a href="" onclick="loadSection('seasons.html', this); return false;">Más episodios</a>
+                    <h3 class="episode-subtitle">Descripción</h3>
+                    <p class="episode-description">${episode.description}</p>
+                    <a class="more-episode-link" href="" onclick="loadSection('seasons.html', this); return false;">Más episodios</a>
+                </section>
                 `;
             } else {
                 console.error('Episodio no encontrado');

@@ -21,6 +21,7 @@ function loadSection(section, element) {
             if (section === 'home.html') {
                 loadMostListenedEpisodes();
                 loadFeaturedEpisodes();
+                loadRecomendedEpisodes();
             }
 
             // Remover y agregar clases de sección activa
