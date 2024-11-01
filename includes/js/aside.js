@@ -30,4 +30,13 @@ document.getElementById("hamburger").addEventListener("click", (event) => {
     event.stopPropagation();
 });
 
+//boton flotante
+document.querySelector('.main-button').addEventListener('click', function() {
+    const floatingButton = document.querySelector('.floating-button');
+    floatingButton.classList.toggle('active');
+});
+
+
+
+
 

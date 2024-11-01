@@ -355,6 +355,95 @@ main {
     margin-top: 10px;
 }
 
+/*floating button section*/
+/* Estilo del contenedor flotante */
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 50px;
+    z-index: 1000;
+}
+
+/* Estilo del botón principal */
+.main-button {
+    background-color: #6f42c1;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.floating-button.active .main-button {
+    transform: rotate(45deg); /* Rotación de 45 grados para que el "+" parezca una "×" */
+    background-color: #3A80BA; /* Cambia de color al activar, opcional */
+}
+
+/* Estilo del contenedor de iconos de redes sociales */
+.social-icons {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transform: translateY(20px); /* Desplazado hacia abajo inicialmente */
+}
+
+.social-icon {
+    background-color: #47476d;
+    color: white;
+    padding: 10px;
+    font-size: 1.5rem;
+    margin: 5px 0;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+.social-icon svg {
+    fill: white;
+    width: 1.5rem;
+}
+
+.social-icon:hover {
+    background-color: #3A80BA;
+}
+
+/* Animación de desplazamiento */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Comienza desplazado hacia abajo */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Termina en su posición original */
+    }
+}
+
+/* Mostrar iconos cuando están activos */
+.floating-button.active .social-icons {
+    opacity: 1;
+    visibility: visible;
+    animation: slideUp 0.3s ease forwards;
+}
+
+
 
 @media screen and (max-width:600px) {
     .py-5 {
@@ -383,14 +472,13 @@ main {
         position: fixed;
         /* Fija el contenedor en la parte superior */
         top: 0;
-        left: 0;
         width: 100%;
         z-index: 3;
         /* Asegura que esté por encima de otros elementos */
     }
 
     .logo {
-        width: 2rem;
+        width: 3rem;
         /* Ajusta el tamaño del logo */
     }
 
@@ -404,6 +492,8 @@ main {
         border: none;
         color: white;
         font-size: 2rem;
+        margin: 0;
+        padding: 0;
     }
 
     /* Estilos del sidebar */
@@ -479,6 +569,31 @@ main {
     .reverse-mobile {
         flex-direction: column-reverse;
     }
+
+    /*floating button section*/
+    .floating-button {
+        right: 20px;
+        z-index: 2 !important;
+    }
+
+    /* Ajuste de tamaño y disposición de los iconos */
+    .social-icons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas de ancho igual */
+        gap: 8px; /* Espacio entre los iconos */
+        bottom: 70px; /* Ajusta la posición en móvil */
+    }
+    
+    .social-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    /* Ajuste de posición del botón principal en móvil */
+    .floating-button {
+        bottom: 15px;
+        right: 15px;
+    }
 }
 
 
@@ -493,7 +608,7 @@ main {
 
 @media (min-width:600px) and (max-width:1400px) {
     .py-5 {
-        padding-top: 3rem !important;
+        padding-top: 5rem !important;
     }
 
     main {
@@ -538,8 +653,10 @@ main {
         background: none;
         border: none;
         color: white;
-        font-size: 2rem;
+        font-size: 5rem;
         display: inline !important;
+        margin: 0;
+        padding: 0;
     }
 
     /* Estilos del sidebar */
@@ -587,11 +704,40 @@ main {
         display: block;
         opacity: 1;
     }
+
+    /*floating button section*/
+    .floating-button {
+        right: 20px;
+        z-index: 2 !important;
+    }
+
+    /* Ajuste de tamaño y disposición de los iconos */
+    .social-icons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas de ancho igual */
+        gap: 8px; /* Espacio entre los iconos */
+        bottom: 70px; /* Ajusta la posición en móvil */
+    }
+    
+    .social-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    /* Ajuste de posición del botón principal en móvil */
+    .floating-button {
+        bottom: 15px;
+        right: 15px;
+    }
 }
 
 @media (min-width:990px) and (max-width:1400px) {
     .col-lg-3 {
         width: 30%;
+    }
+
+    .py-5 {
+        padding-top: 6vh !important;
     }
     
 }
