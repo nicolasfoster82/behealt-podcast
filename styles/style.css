@@ -707,7 +707,7 @@ main {
 
     /*floating button section*/
     .floating-button {
-        right: 20px;
+        right: 50px !important;
         z-index: 2 !important;
     }
 
