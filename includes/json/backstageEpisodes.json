@@ -1,0 +1,38 @@
+{
+    "episodes": [
+        {
+            "id": "ep1",
+            "title": "Backstage - Episodio 1",
+            "season": "backstage",
+            "content": [
+                {
+                    "type": "image",
+                    "src": "https://via.placeholder.com/400x300?text=Imagen+Episodio+1-1",
+                    "alt": "Imagen del backstage episodio 1"
+                },
+                {
+                    "type": "video",
+                    "youtubeId": "h9h469OTS7s",
+                    "alt": "Video del backstage episodio 1"
+                }
+            ]
+        },
+        {
+            "id": "ep2",
+            "title": "Backstage - Episodio 2",
+            "season": "backstage",
+            "content": [
+                {
+                    "type": "image",
+                    "src": "https://via.placeholder.com/400x300?text=Imagen+Episodio+2-1",
+                    "alt": "Imagen del backstage episodio 2"
+                },
+                {
+                    "type": "video",
+                    "youtubeId": "Zs-0HU5b490",
+                    "alt": "Video del backstage episodio 2"
+                }
+            ]
+        }
+    ]
+}

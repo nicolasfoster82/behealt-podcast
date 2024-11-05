@@ -24,6 +24,10 @@ function loadSection(section, element) {
                 loadRecomendedEpisodes();
             }
 
+            if (section === 'backstage.html') {
+                loadBackstageCarousels();
+            }
+
             // Remover y agregar clases de sección activa
             const activeLinks = document.querySelectorAll('.nav-link.active-section, .nav-link.active');
             activeLinks.forEach(link => {
