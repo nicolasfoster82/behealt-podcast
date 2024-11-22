@@ -1,3 +1,4 @@
+// Función para cargar episodios en los carruseles
 function loadEpisodes() {
     fetch('includes/json/episodes.json?t=' + new Date().getTime())
         .then(response => response.json())
@@ -15,16 +16,23 @@ function loadEpisodes() {
             // Cargar episodios en cada carrusel
             for (const [season, episodes] of Object.entries(episodesBySeason)) {
                 const carouselTrack = document.getElementById(`carousel-track-${season}`);
-                carouselTrack.innerHTML = episodes.map(episode => `
-                    <div class="episode">
-                        <a href="${episode.title}" onclick="loadEpisode('${episode.id}'); return false;">
-                            <div class="image-container image-100 ">
-                                <img src="https://i.scdn.co/image/${episode.image}" alt="Podcast ${episode.title}">
-                                <div class="icon-overlay"><i class='bx bx-play'></i></div>
-                            </div>
-                        </a>
-                    </div>
-                `).join('');
+                carouselTrack.innerHTML = episodes.map(episode => {
+                    // Determinar la miniatura correcta
+                    const thumbnail = episode.youtubeId
+                        ? `${episode.image}` // Miniatura de YouTube
+                        : `https://i.scdn.co/image/${episode.image}`; // Miniatura de Spotify
+
+                    return `
+                        <div class="episode">
+                            <a href="${episode.title}" onclick="loadEpisode('${episode.id}'); return false;">
+                                <div class="image-container image-100">
+                                    <img src="${thumbnail}" alt="Podcast ${episode.title}">
+                                    <div class="icon-overlay"><i class='bx bx-play'></i></div>
+                                </div>
+                            </a>
+                        </div>
+                    `;
+                }).join('');
 
                 // Inicializar Owl Carousel
                 $(carouselTrack).owlCarousel({
@@ -54,24 +62,29 @@ function loadEpisode(episodeId) {
         .then(data => {
             const episode = data.episodes.find(ep => ep.id === episodeId);
             if (episode) {
-                const content = document.getElementById('content'); // Reemplazamos el contenido del <main> con la ficha técnica
+                const content = document.getElementById('content');
                 content.innerHTML = `
-                <section class="team py-5">
-                    <h2 class="episode-title">${episode.title}</h2>
-                    <div class="spotify-player">
-                        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/${episode.spotifyId}?utm_source=generator" width="100%" height="325px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    </div>
+                    <section class="team py-5">
+                        <h2 class="episode-title">${episode.title}</h2>
+                        <div class="episode-player">
+                            ${
+                                episode.spotifyId
+                                    ? `<iframe class="spotify-player" style="border-radius:12px" src="https://open.spotify.com/embed/episode/${episode.spotifyId}?utm_source=generator" width="100%" height="325px" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
+                                    : episode.youtubeId
+                                    ? `<iframe class="youtube-player" style="border-radius:12px" width="100%" src="https://www.youtube.com/embed/${episode.youtubeId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                                    : `<p>Contenido no disponible.</p>`
+                            }
+                        </div>
+                        <h3 class="episode-subtitle">Invitado/a</h3>
+                        <p class="episode-description">${episode.guest}</p>
 
-                    <h3 class="episode-subtitle">Invitado/a</h3>
-                    <p class="episode-description">${episode.guest}</p>
+                        <h3 class="episode-subtitle">Fecha de publicación</h3>
+                        <p class="episode-description">${episode.date}</p>
 
-                    <h3 class="episode-subtitle">Fecha de publicación</h3>
-                    <p class="episode-description">${episode.date}</p>
-
-                    <h3 class="episode-subtitle">Descripción</h3>
-                    <p class="episode-description">${episode.description}</p>
-                    <a class="more-episode-link" href="" onclick="loadSection('seasons.html', this); return false;">Más episodios</a>
-                </section>
+                        <h3 class="episode-subtitle">Descripción</h3>
+                        <p class="episode-description">${episode.description}</p>
+                        <a class="more-episode-link" href="" onclick="loadSection('seasons.html', this); return false;">Más episodios</a>
+                    </section>
                 `;
             } else {
                 console.error('Episodio no encontrado');
@@ -82,6 +95,7 @@ function loadEpisode(episodeId) {
 
 // Cargar episodios al cargar la página
 document.addEventListener('DOMContentLoaded', loadEpisodes);
+
 
 
 

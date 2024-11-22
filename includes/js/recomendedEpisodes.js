@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    loadRecomendedEpisodes(); 
+    loadRecomendedEpisodes();
 });
 
 function loadRecomendedEpisodes() {
@@ -14,12 +14,17 @@ function loadRecomendedEpisodes() {
             data.episodes
                 .filter(episode => episode.status === "recomended episode")
                 .forEach(episode => {
+                    // Determinar la miniatura correcta
+                    const thumbnail = episode.youtubeId
+                        ? `${episode.image}` // Miniatura de YouTube
+                        : `https://i.scdn.co/image/${episode.image}`; // Miniatura de Spotify
+
                     const episodeHTML = `
                         <div class="col-md-4 col-lg-2 mb-4">
                             <a href="${episode.title}" onclick="loadEpisode('${episode.id}'); return false;" class="link-recomended-episode">
                                 <div class="card recomended-episode-card">
                                     <div class="image-container">
-                                        <img src="https://i.scdn.co/image/${episode.image}" alt="${episode.title}">
+                                        <img src="${thumbnail}" alt="${episode.title}">
                                         <div class="icon-overlay"><i class='bx bx-play'></i></div>
                                     </div>
                                     <div class="card-body">
@@ -38,4 +43,5 @@ function loadRecomendedEpisodes() {
         })
         .catch(error => console.error("Error al cargar los episodios:", error));
 }
+
 

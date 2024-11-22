@@ -18,11 +18,14 @@ function loadMostListenedEpisodes() {
                 const h3 = document.createElement('h3');
                 h3.textContent = index + 1; // Números del 1 al 5
 
+                // Determinar la imagen correcta (YouTube o Spotify)
                 const img = document.createElement('img');
-                img.src = `https://i.scdn.co/image/${episode.image}`;
+                img.src = episode.youtubeId
+                    ? `${episode.image}` // Miniatura de YouTube
+                    : `https://i.scdn.co/image/${episode.image}`; // Imagen de Spotify
                 img.alt = episode.title;
 
-                // Asignar el evento onclick a la imagen o al título
+                // Asignar el evento onclick a la imagen y al número
                 img.onclick = () => loadEpisode(episode.id);
                 h3.onclick = () => loadEpisode(episode.id);
 
@@ -42,3 +45,4 @@ function loadEpisode(episodeId) {
 
 // Cargar episodios más escuchados al cargar la página
 document.addEventListener('DOMContentLoaded', loadMostListenedEpisodes);
+

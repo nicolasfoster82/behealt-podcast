@@ -12,6 +12,11 @@ function loadFeaturedEpisodes() {
             const featuredEpisodes = data.episodes.filter(episode => episode.status === "featured episode");
 
             featuredEpisodes.forEach(episode => {
+                // Determinar la miniatura correcta
+                const thumbnail = episode.youtubeId
+                    ? `${episode.image}` // Miniatura de YouTube
+                    : `https://i.scdn.co/image/${episode.image}`; // Miniatura de Spotify
+
                 const episodeHTML = `
                     <div class="col-md-6 col-lg-3 mb-4">
                         <a href="${episode.title}" onclick="loadEpisode('${episode.id}'); return false;" class="link-featured-episode">
@@ -19,7 +24,7 @@ function loadFeaturedEpisodes() {
                                 <div class="row g-0">
                                     <!-- Columna de la imagen -->
                                     <div class="col-4 image-container">
-                                        <img src="https://i.scdn.co/image/${episode.image}"
+                                        <img src="${thumbnail}"
                                             class="img-fluid rounded-start" alt="${episode.guest}">
                                         <div class="icon-overlay"><i class='bx bx-play'></i></div>
                                     </div>
@@ -45,5 +50,6 @@ function loadFeaturedEpisodes() {
         })
         .catch(error => console.error("Error loading episodes:", error));
 }
+
 
 
