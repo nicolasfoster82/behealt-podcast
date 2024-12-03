@@ -62,6 +62,7 @@ function loadEpisode(episodeId) {
         .then(data => {
             const episode = data.episodes.find(ep => ep.id === episodeId);
             if (episode) {
+                window.scrollTo(0, 0); // O utiliza esto para toda la página
                 const content = document.getElementById('content');
                 content.innerHTML = `
                     <section class="team py-5">

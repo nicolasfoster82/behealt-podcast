@@ -239,6 +239,21 @@
       "status": "recomended episode",
       "duration": "36 min",
       "min_date": "Nov 06"
+    },
+    {
+      "id": "17",
+      "title": "T2 EP 7 | Fe y esperanza en cada paso junto a nuestra Shanira Blanco🎙️🌟",
+      "guest": "Shanira Blanco",
+      "date": "20 de noviembre 2024",
+      "description": "En este episodio de Salud En Control, Shanira Blanco, animadora, modelo, madre y mucho más, comparte cómo la fe, la esperanza y la fortaleza fueron claves en los momentos más desafiantes de su vida. Su historia es un poderoso recordatorio de la importancia de mantener la resiliencia en tiempos de adversidad.💙",
+      "spotifyId": null,
+      "youtubeId": "Pt2KRkQ9JtQ",
+      "image": "assets/t2-ep-7-sahnira-blanco.webp",
+      "season": 2,
+      "most_listened": false,
+      "status": "standard episode",
+      "duration": "35 min",
+      "min_date": "Nov 20"
     }
   ]
 }
