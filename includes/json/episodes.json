@@ -13,7 +13,8 @@
       "most_listened": false,
       "status": "featured episode",
       "duration":"20min",
-      "min_date":"May 18"
+      "min_date":"May 18",
+      "slug": "1"
     },
     { 
       "id": "2",
@@ -28,7 +29,8 @@
       "most_listened": false,
       "status": "featured episode",
       "duration":"29 min",
-      "min_date":"May 25"
+      "min_date":"May 25",
+      "slug": "que-es-behealth-nuestra-ceo-nos-explica"
     },
     {
       "id": "3",
@@ -43,7 +45,8 @@
       "most_listened": false,
       "status": "featured episode",
       "duration":"29 min",
-      "min_date":"Jun 01"
+      "min_date":"Jun 01",
+      "slug": ""
     },
     {
       "id": "4",
@@ -58,7 +61,8 @@
       "most_listened": false,
       "status": "recomended episode",
       "duration":"29 min",
-      "min_date":"Jun 12"
+      "min_date":"Jun 12",
+      "slug": ""
     },
     {
       "id": "5",
@@ -73,7 +77,8 @@
       "most_listened": false,
       "status": "recomended episode",
       "duration":"33 min",
-      "min_date":"Jun 19"
+      "min_date":"Jun 19",
+      "slug": ""
     },
     {
       "id": "6",
@@ -88,7 +93,8 @@
       "most_listened": false,
       "status": "featured episode",
       "duration":"29 min",
-      "min_date":"Jun 29"
+      "min_date":"Jun 29",
+      "slug": ""
     },
     {
       "id": "7",
@@ -103,7 +109,8 @@
       "most_listened": false,
       "status": "recomended episode",
       "duration":"26 min",
-      "min_date":"Jul 03"
+      "min_date":"Jul 03",
+      "slug": ""
     },
     {
       "id": "8",
@@ -118,7 +125,8 @@
       "most_listened": false,
       "status": "featured episode",
       "duration":"30 min",
-      "min_date":"Jul 10"
+      "min_date":"Jul 10",
+      "slug": ""
     },
     {
       "id": "9",
@@ -133,7 +141,8 @@
       "most_listened": false,
       "status": "standard episode",
       "duration":"43 min",
-      "min_date":"Jul 17"
+      "min_date":"Jul 17",
+      "slug": ""
     },
     {
       "id": "10",
@@ -148,7 +157,8 @@
       "most_listened": false,
       "status": "standard episode",
       "duration":"41 min",
-      "min_date":"Jul 24"
+      "min_date":"Jul 24",
+      "slug": ""
     },
     {
       "id": "11",
@@ -163,7 +173,8 @@
       "most_listened": true,
       "status": "featured episode",
       "duration": "29 min",
-      "min_date": "sep 18"
+      "min_date": "sep 18",
+      "slug": ""
     },
     {
       "id": "12",
@@ -178,7 +189,8 @@
       "most_listened": true,
       "status": "featured episode",
       "duration": "32 min",
-      "min_date": "sep 25"
+      "min_date": "sep 25",
+      "slug": ""
     },
     {
       "id": "13",
@@ -193,7 +205,8 @@
       "most_listened": true,
       "status": "recomended episode",
       "duration": "32 min",
-      "min_date": "Oct 02"
+      "min_date": "Oct 02",
+      "slug": ""
     },
     {
       "id": "14",
@@ -208,7 +221,8 @@
       "most_listened": true,
       "status": "featured episode",
       "duration": "37 min",
-      "min_date": "Oct 09"
+      "min_date": "Oct 09",
+      "slug": ""
     },
     {
       "id": "15",
@@ -223,7 +237,8 @@
       "most_listened": true,
       "status": "recomended episode",
       "duration": "36 min",
-      "min_date": "Oct 23"
+      "min_date": "Oct 23",
+      "slug": ""
     },
     {
       "id": "16",
@@ -238,7 +253,8 @@
       "most_listened": false,
       "status": "recomended episode",
       "duration": "36 min",
-      "min_date": "Nov 06"
+      "min_date": "Nov 06",
+      "slug": ""
     },
     {
       "id": "17",
@@ -253,7 +269,8 @@
       "most_listened": false,
       "status": "standard episode",
       "duration": "35 min",
-      "min_date": "Nov 20"
+      "min_date": "Nov 20",
+      "slug": ""
     },
     {
       "id": "18",
@@ -268,7 +285,8 @@
       "most_listened": false,
       "status": "standard episode",
       "duration": "36 min",
-      "min_date": "Dic 11"
+      "min_date": "Dic 11",
+      "slug": ""
     }
   ]
 }

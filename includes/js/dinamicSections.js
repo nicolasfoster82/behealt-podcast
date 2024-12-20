@@ -1,4 +1,3 @@
-// Función para cargar una sección
 function loadSection(section, element) {
     const content = document.getElementById('content');
 
@@ -8,7 +7,6 @@ function loadSection(section, element) {
         // Remover el parámetro `episode` de la URL
         history.replaceState({}, '', window.location.pathname);
     }
-
     fetch(section)
         .then(response => response.text())
         .then(html => {
@@ -75,8 +73,39 @@ function loadSection(section, element) {
         });
 }
 
-// Cargar el home al inicio de la página
+// Cargar la sección inicial al inicio de la página
 document.addEventListener('DOMContentLoaded', function() {
-    loadSection('home.html', document.getElementById('home-link'));
+    // Verificar si hay un episodio en la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const episodeId = urlParams.get('episode');
+
+    if (episodeId) {
+        // Si hay un episodio en la URL, cargar los detalles del episodio directamente
+        fetch('includes/json/episodes.json?t=' + new Date().getTime())
+            .then(response => response.json())
+            .then(data => {
+                const episode = data.episodes.find(ep => ep.id === episodeId);
+                if (episode) {
+                    // Cargar el contenido del episodio directamente
+                    if (typeof loadEpisodeContent === 'function') {
+                        loadEpisodeContent(episode); // Llama a la función que muestra el episodio
+                    } else {
+                        console.error('La función loadEpisodeContent no está disponible.');
+                    }
+                } else {
+                    // Si el episodio no existe, redirigir a home
+                    loadSection('home.html', document.getElementById('home-link'));
+                }
+            })
+            .catch(error => {
+                console.error('Error al verificar el episodio:', error);
+                loadSection('home.html', document.getElementById('home-link'));
+            });
+    } else {
+        // Si no hay episodio, cargar el home por defecto
+        loadSection('home.html', document.getElementById('home-link'));
+    }
+    
 });
+
 

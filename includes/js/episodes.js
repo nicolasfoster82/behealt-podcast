@@ -24,7 +24,7 @@ function loadEpisodes() {
 
                     return `
                         <div class="episode">
-                            <a href="?episode=${episode.id}" onclick="loadEpisode('${episode.id}'); return false;">
+                            <a href="${episode.title}" onclick="loadEpisode('${episode.id}'); return false;">
                                 <div class="image-container image-100">
                                     <img src="${thumbnail}" alt="Podcast ${episode.title}">
                                     <div class="icon-overlay"><i class='bx bx-play'></i></div>
@@ -84,7 +84,7 @@ function loadEpisode(episodeId) {
 
                         <h3 class="episode-subtitle">Descripción</h3>
                         <p class="episode-description">${episode.description}</p>
-                        <a class="more-episode-link" href="salud-en-control" onclick="loadSection('salud-en-control.html', this); return false;">Más episodios</a>
+                        <a class="more-episode-link" href="" onclick="loadSection('salud-en-control.html', this); return false;">Más episodios</a>
                     </section>
                 `;
 
@@ -120,8 +120,6 @@ window.addEventListener('popstate', event => {
 // Llamada inicial
 handleInitialLoad();
 
-// Cargar episodios al cargar la página
-document.addEventListener('DOMContentLoaded', loadEpisodes);
 
 
 

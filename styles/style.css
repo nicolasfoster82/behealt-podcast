@@ -161,6 +161,15 @@ main {
     padding-top: 20px;
 }
 
+.title-programa-container {
+    width: 100%;
+    text-align: center;
+}
+
+.logo-programa {
+    width: 180px;
+}
+
 .season-container h3 {
     position: absolute;
     top: 5px;
