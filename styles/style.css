@@ -1,3 +1,22 @@
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #47476d;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #47476d;
+}
+
 /*ajustes generales*/
 body {
     background-color: #1e1e2f;
@@ -217,7 +236,7 @@ main {
     width: 100%;
     height: 450px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    
+
 }
 
 

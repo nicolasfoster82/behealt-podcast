@@ -21,7 +21,7 @@ function loadRecomendedEpisodes() {
 
                     const episodeHTML = `
                         <div class="col-md-4 col-lg-2 mb-4">
-                            <a href="${episode.title}" onclick="loadEpisode('${episode.id}'); return false;" class="link-recomended-episode">
+                            <a href="?episode=${episode.id}" onclick="loadEpisode('${episode.id}'); return false;" class="link-recomended-episode">
                                 <div class="card recomended-episode-card">
                                     <div class="image-container">
                                         <img src="${thumbnail}" alt="${episode.title}">

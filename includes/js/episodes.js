@@ -24,7 +24,7 @@ function loadEpisodes() {
 
                     return `
                         <div class="episode">
-                            <a href="${episode.title}" onclick="loadEpisode('${episode.id}'); return false;">
+                            <a href="?episode=${episode.id}" onclick="loadEpisode('${episode.id}'); return false;">
                                 <div class="image-container image-100">
                                     <img src="${thumbnail}" alt="Podcast ${episode.title}">
                                     <div class="icon-overlay"><i class='bx bx-play'></i></div>
@@ -62,7 +62,7 @@ function loadEpisode(episodeId) {
         .then(data => {
             const episode = data.episodes.find(ep => ep.id === episodeId);
             if (episode) {
-                window.scrollTo(0, 0); // O utiliza esto para toda la página
+                window.scrollTo(0, 0); // Scroll al inicio de la página
                 const content = document.getElementById('content');
                 content.innerHTML = `
                     <section class="team py-5">
@@ -84,15 +84,41 @@ function loadEpisode(episodeId) {
 
                         <h3 class="episode-subtitle">Descripción</h3>
                         <p class="episode-description">${episode.description}</p>
-                        <a class="more-episode-link" href="" onclick="loadSection('seasons.html', this); return false;">Más episodios</a>
+                        <a class="more-episode-link" href="salud-en-control" onclick="loadSection('salud-en-control.html', this); return false;">Más episodios</a>
                     </section>
                 `;
+
+                // Actualizar la URL dinámica sin recargar
+                history.pushState({ episodeId }, episode.title, `?episode=${episodeId}`);
             } else {
                 console.error('Episodio no encontrado');
             }
         })
         .catch(error => console.error('Error al cargar los detalles del episodio:', error));
 }
+
+// Manejar la carga inicial desde la URL
+function handleInitialLoad() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const episodeId = urlParams.get('episode');
+    if (episodeId) {
+        loadEpisode(episodeId);
+    } else {
+        console.error('No se especificó ningún episodio en la URL.');
+    }
+}
+
+// Manejar el botón "Atrás" o "Adelante" del navegador
+window.addEventListener('popstate', event => {
+    if (event.state && event.state.episodeId) {
+        loadEpisode(event.state.episodeId);
+    } else {
+        console.error('No hay estado en el historial.');
+    }
+});
+
+// Llamada inicial
+handleInitialLoad();
 
 // Cargar episodios al cargar la página
 document.addEventListener('DOMContentLoaded', loadEpisodes);
